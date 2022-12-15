@@ -55,29 +55,23 @@
         border: solid 1px black;
         border-radius: 5vw;">シェア</button></p>
 <script type="text/javascript">
-      (function(){
-        function share() {
-          if (navigator.share) {
-            navigator.share({
-              title: 'ぼっちゃんずホーム',
-              text: 'ぼっちゃんずのサイトです',
-              url: 'https://www.bocchans.ml/',
-            })
-            .then(() => {
-              // シェアしたら実行される
-              console.log('Successful share');
-            })
-            .catch((error) => {
-              // シェアせず終了した場合もここに入ってくる。
-              console.log('Error sharing', error));
-            };
-          } else {
-            alert('Web Share API is not supported!!');
-            // Web Share API未対応ブラウザ向けのフォールバックを実装する。
-          }
-        }
-        document.querySelector('#share').addEventListener('click', share);
-      })();
+      async share() {
+    if (!window.navigator.share) ｛
+        alert("ご利用のブラウザでは共有できません。");
+        return;
+    }
+
+    try {
+      await window.navigator.share({
+        title: 'ぼっちゃんずホーム',
+        text: 'ぼっちゃんずのサイトです。',
+        url: 'https://www.bocchans.ml/',
+      });
+      alert('共有が完了しました。');
+    } catch (e) {
+      console.log(e.message);
+    }
+}
     </script>
 
     </div>
