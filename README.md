@@ -1,3 +1,3 @@
-# bocchans-official
+# bocchans
 
 https://www.bocchans.ml/
