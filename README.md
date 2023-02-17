@@ -1,1 +1,3 @@
-# bocchans.github.io
+# bocchans-official
+
+https://www.bocchans.ml/
